@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Articles | Kinetix Performance Coaching{% endblock %}
+{% block description %}Training notes, nutrition breakdowns, and coaching insight from Kinetix Performance Coaching.{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">Blog</span>
+    <h1>Articles.</h1>
+    <p>Notes from the coaching floor — training, nutrition, and what the data actually shows.</p>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="wrap">
+    {% if articles %}
+    <div class="article-grid">
+      {% for article in articles %}
+      <div class="article-card">
+        <div class="byline">{{ article.author_name }} · {{ article.created_at.strftime('%b %-d, %Y') }}</div>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.excerpt }}</p>
+        <div class="card-row">
+          <a href="{{ url_for('articles.detail', article_id=article.id) }}" class="read-link">Read more →</a>
+          {% if current_user.is_authenticated %}
+          <a href="{{ url_for('articles.edit', article_id=article.id) }}" class="card-action-link">Edit</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">No articles yet.</div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

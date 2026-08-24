@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Videos | Kinetix Performance Coaching{% endblock %}
+{% block description %}Training sessions, coaching breakdowns, and DEXA scan walkthroughs from Kinetix Performance Coaching.{% endblock %}
+
+{% block content %}
+{% macro video_card(video) %}
+<div class="video-card" data-category="{{ video.category_slug }}">
+  <div class="frame video-embed">
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+    <iframe src="{{ video.embed_url }}" title="{{ video.title }}" allowfullscreen></iframe>
+  </div>
+  <div class="meta"><h3>{{ video.title }}</h3><span class="cat-tag">{{ video.category }}</span></div>
+  <div class="byline">Posted by {{ video.author_name }} · {{ video.created_at.strftime('%b %-d, %Y') }}</div>
+  {% if current_user.is_authenticated %}
+  <div class="card-actions">
+    <a href="{{ url_for('videos.edit', video_id=video.id) }}" class="card-action-link">Edit</a>
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">Video Library</span>
+    <h1>Performance, on film.</h1>
+    <p>Training sessions, coaching breakdowns, and DEXA scan walkthroughs from inside Kinetix — real sessions, real numbers.</p>
+  </div>
+</section>
+
+<!-- ============ FILTER BAR ============ -->
+<div class="wrap">
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    {% for cat in categories %}
+    <button class="filter-btn" data-filter="{{ cat|lower }}">{{ cat }}</button>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- ============ FEATURED VIDEO ============ -->
+<section class="featured">
+  <div class="wrap">
+    <div class="frame video-embed">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <!-- PLACEHOLDER: swap embed src for the real featured/intro video when it's ready -->
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Featured — Intro" allowfullscreen></iframe>
+    </div>
+    <div class="tag-row">
+      <span class="cat">Featured</span>
+      <span>Intro</span>
+    </div>
+    <h3>Coming soon: the Kinetix intro video</h3>
+  </div>
+</section>
+
+<!-- ============ VIDEO GRID 1 ============ -->
+<section class="video-grid-section">
+  <div class="wrap">
+    <div class="section-label">Recent Sessions</div>
+    {% if recent %}
+    <div class="video-grid" id="videoGrid1">
+      {% for video in recent %}
+        {{ video_card(video) }}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">No videos yet.</div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ============ VIDEO GRID 2 ============ -->
+{% if archive %}
+<section class="video-grid-section">
+  <div class="wrap">
+    <div class="section-label">From the Archive</div>
+    <div class="video-grid" id="videoGrid2">
+      {% for video in archive %}
+        {{ video_card(video) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

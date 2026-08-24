@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% block title %}Kinetix Performance Coaching | Austin, TX{% endblock %}
+
+{% block content %}
+<!-- ============ FULL-SCREEN BANNER ============ -->
+<section class="banner-intro" id="top">
+  <div class="banner-media" id="bannerMedia">
+    <!-- REPLACE: served from images/logo-banner.jpg -->
+    <img src="{{ url_for('static', filename='images/logo-banner.jpg') }}" alt="Kinetix Performance Coaching — Strength, Nutrition, Longevity">
+  </div>
+  <div class="scanline-sweep"></div>
+  <div class="banner-fade"></div>
+  <div class="scroll-cue"><span>Scroll</span><span class="stem"></span></div>
+</section>
+
+<!-- ============ INTRO VIDEO (immediately below the banner) ============ -->
+<section class="intro-video">
+  <div class="wrap reveal">
+    <div class="section-label">Watch First</div>
+    <div class="frame video-embed">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <!-- PLACEHOLDER: swap embed src for the real intro video when it's ready -->
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Kinetix Performance Coaching — Intro" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HERO COPY ============ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Austin, TX — Performance Coaching</span>
+      <h1>Train by the numbers.</h1>
+      <p class="sub">DEXA-guided strength and nutrition coaching for people who want results they can measure — not guess at. Every program starts with a scan, not a hunch.</p>
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn btn-gold">Start Your Assessment</a>
+        <a href="#services" class="btn btn-ghost">See Services</a>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="frame hero-photo img-placeholder">
+        <!-- REPLACE: hero photo of Josh Kintigh coaching a client -->
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <span class="tag">FIG. 01</span>
+        <div class="reticle-line"></div>
+        <span>Hero Photo Placeholder<br>Josh Kintigh — In Session</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="num">20+</div><div class="lbl">Years Coaching</div></div>
+    <div class="stat"><div class="num">300+</div><div class="lbl">Clients Coached</div></div>
+    <div class="stat"><div class="num">DEXA</div><div class="lbl">Data Driven</div></div>
+  </div>
+</header>
+
+<!-- ============ MISSION ============ -->
+<section class="mission">
+  <div class="wrap reveal">
+    <div class="rule"></div>
+    <p>We replace guesswork with data — pairing clinical-grade body composition scanning with coaching that adapts to what your body actually needs, rep by rep, meal by meal, year by year.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photos reveal">
+      <div class="frame img-placeholder">
+        <!-- REPLACE: wide photo of Josh coaching in the gym -->
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <span class="tag">FIG. 02</span>
+        <span>Photo Placeholder<br>Josh — Coaching Floor</span>
+      </div>
+      <div class="frame img-placeholder">
+        <!-- REPLACE: headshot of Josh Kintigh -->
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <span>Photo Placeholder<br>Headshot</span>
+      </div>
+      <div class="frame img-placeholder">
+        <!-- REPLACE: photo of DEXA scan equipment / session -->
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <span>Photo Placeholder<br>DEXA Session</span>
+      </div>
+    </div>
+
+    <div class="about-copy reveal">
+      <span class="eyebrow gold">About the Coach</span>
+      <h2>Josh Kintigh</h2>
+      <p>Josh Kintigh has spent over two decades in strength and conditioning, working with athletes, executives, and everyday clients who wanted a training program built on evidence, not trends.</p>
+      <p>He holds certifications in functional nutrition science, clinical nutrition coaching, and strength training, and uses DEXA body composition scanning as the baseline for every program he builds. His approach is simple: measure first, program second, and adjust as the data changes.</p>
+      <div class="cred-tags">
+        <span class="cred-tag">FNS</span>
+        <span class="cred-tag">CNC</span>
+        <span class="cred-tag">NASM-CPT</span>
+        <span class="cred-tag">Strength</span>
+        <span class="cred-tag">Nutrition</span>
+        <span class="cred-tag">Longevity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Three ways to start measuring what matters.</h2>
+      <p>Every service at Kinetix is built around the same idea — know where you actually stand before you decide where to go.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-index">01 / DEXA</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="10" width="36" height="26" rx="1"/><path d="M6 22h36M16 10v26M32 10v26"/><circle cx="24" cy="16" r="1.4" fill="currentColor" stroke="none"/></svg>
+        <h3>DEXA Scans</h3>
+        <p>Clinical-grade body composition scanning that measures fat mass, lean mass, and bone density — the real baseline your program should be built on.</p>
+        <a href="#contact" class="service-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-index">02 / COACHING</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 34c0-8 6-13 16-13s16 5 16 13"/><circle cx="24" cy="13" r="7"/></svg>
+        <h3>Health Coaching</h3>
+        <p>Ongoing nutrition and lifestyle coaching that turns your scan data into a plan you can actually follow, adjusted as your numbers change.</p>
+        <a href="#contact" class="service-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-index">03 / TRAINING</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 24h4M40 24h4M12 24h24M12 17v14M36 17v14M8 20v8M40 20v8"/></svg>
+        <h3>Personal Training</h3>
+        <p>One-on-one strength and conditioning programming, built around your DEXA results and refreshed every training block.</p>
+        <a href="#contact" class="service-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS / TESTIMONIALS ============ -->
+<section class="results" id="results">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow gold">Client Results</span>
+      <h2>Numbers our clients bring up unprompted.</h2>
+    </div>
+
+    <div class="testimonial-grid reveal">
+      <!-- REPLACE: real client testimonials -->
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"DEXA Scan"</blockquote>
+        <div class="t-meta">
+          <div class="t-name">Placeholder Client</div>
+          <div class="t-program">DEXA Scan + Coaching</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Sixteen weeks in and my numbers don't lie — down 6% body fat, up 4 lbs of lean mass."</blockquote>
+        <div class="t-meta">
+          <div class="t-name">Placeholder Client</div>
+          <div class="t-program">Personal Training</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Josh built a nutrition plan around my actual scan data, not a generic macro calculator."</blockquote>
+        <div class="t-meta">
+          <div class="t-name">Placeholder Client</div>
+          <div class="t-program">Health Coaching</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="wrap cta-band-inner reveal">
+    <div>
+      <h2>Book Your Assessment — $250</h2>
+      <div class="phone">Call or text <a href="tel:5127397255">512-739-7255</a></div>
+    </div>
+    <a href="#contact" class="btn btn-outline-light">Schedule Now</a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Let's look at your data.</h2>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="lbl">Studio</div>
+          <!-- REPLACE: real studio address -->
+          <div class="val">Austin, TX (address on request)</div>
+        </div>
+        <div class="contact-item">
+          <div class="lbl">Phone</div>
+          <div class="val"><a href="tel:5127397255">512-739-7255</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="lbl">Email</div>
+          <!-- REPLACE: real contact email -->
+          <div class="val"><a href="mailto:info@kinetixcoaching.com">info@kinetixcoaching.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="lbl">Hours</div>
+          <!-- REPLACE: real studio hours -->
+          <div class="val">Mon–Fri, 6:00am – 7:00pm</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div class="field">
+            <label for="goal">Primary Goal</label>
+            <select id="goal" name="goal">
+              <option>Strength</option>
+              <option>Body Composition</option>
+              <option>Longevity</option>
+              <option>Athletic Performance</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a bit about your goals..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gold">Send Message</button>
+        <div class="form-note" id="formNote">[ MESSAGE RECEIVED ] We'll respond within 24 hours.</div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

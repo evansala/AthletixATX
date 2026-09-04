@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Post a Video | Kinetix Performance Coaching{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">New Video</span>
+    <h1>Post a video.</h1>
+    <p>Paste a YouTube link, give it a title, and pick a category. All three are required before it goes live on the video page.</p>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="wrap">
+    <div class="form-card">
+      <form id="postVideoForm" method="post" novalidate>
+        <div class="field">
+          <label for="youtube_url">YouTube Link</label>
+          <input type="text" id="youtube_url" name="youtube_url" placeholder="https://www.youtube.com/watch?v=..." value="{{ form_data.get('youtube_url', '') }}">
+          <div class="hint">Any youtube.com or youtu.be link works.</div>
+        </div>
+
+        <div class="field">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="e.g. Goblet Squat Breakdown" value="{{ form_data.get('title', '') }}">
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="" disabled {% if not form_data.get('category') %}selected{% endif %}>Select a category…</option>
+            {% for cat in categories %}
+            <option value="{{ cat }}" {% if form_data.get('category') == cat %}selected{% endif %}>{{ cat }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-preview" id="videoPreview">
+          <span>Preview</span>
+          <iframe id="videoPreviewFrame" src="" allowfullscreen></iframe>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-gold">Publish Video</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  (function(){
+    const form = document.getElementById('postVideoForm');
+    const urlInput = document.getElementById('youtube_url');
+    const preview = document.getElementById('videoPreview');
+    const previewFrame = document.getElementById('videoPreviewFrame');
+
+    function extractId(url){
+      if (!url) return null;
+      const m = url.match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?v=|embed\/|shorts\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+      return m ? m[1] : null;
+    }
+
+    urlInput.addEventListener('input', () => {
+      const id = extractId(urlInput.value.trim());
+      if (id) {
+        previewFrame.src = 'https://www.youtube.com/embed/' + id;
+        preview.classList.add('show');
+      } else {
+        preview.classList.remove('show');
+        previewFrame.src = '';
+      }
+    });
+    // Fire once in case of repopulated value after a failed submit.
+    urlInput.dispatchEvent(new Event('input'));
+
+    form.addEventListener('submit', function(e){
+      const title = document.getElementById('title').value.trim();
+      const category = document.getElementById('category').value;
+      const url = urlInput.value.trim();
+      const errors = [];
+
+      if (!title) errors.push('Title is required.');
+      if (!category) errors.push('Please select a category.');
+      if (!url) {
+        errors.push('A YouTube link is required.');
+      } else if (!extractId(url)) {
+        errors.push("That doesn't look like a valid YouTube link.");
+      }
+
+      if (errors.length) {
+        e.preventDefault();
+        window.showValidationModal(errors);
+      }
+    });
+  })();
+</script>
+{% endblock %}

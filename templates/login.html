@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Log In | Kinetix Performance Coaching{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">Team Access</span>
+    <h1>Log in.</h1>
+    <p>For Josh and admin accounts only.</p>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="wrap">
+    <div class="form-card login-card">
+      <form method="post" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autofocus>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-actions" style="justify-content:stretch;">
+          <button type="submit" class="btn btn-gold" style="width:100%;">Log In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

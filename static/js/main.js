@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const track = document.getElementById('testimonialTrack');
   if (!track) return;
 
-  const PAUSE_MS = 3000;   // how long each card set sits still
+  const PAUSE_MS = 10000;   // how long each card set sits still
   const SHIFT_MS = 700;    // how long the slide animation takes
 
   function step() {

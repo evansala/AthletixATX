@@ -678,6 +678,9 @@ footer{background:#080A0D;color:var(--text);padding:64px 0 26px;border-top:1px s
   .nav-cta{display:none;}
 
   .banner-intro{height:100svh;min-height:480px;}
+  /* show the whole logo on narrow screens instead of a zoomed-in crop */
+  .banner-media{transform:none !important;display:flex;align-items:center;justify-content:center;}
+  .banner-media img{width:100%;height:auto;max-height:100%;object-fit:contain;}
 
   .hero-inner{grid-template-columns:1fr;}
   .hero-photo-wrap{order:-1;max-width:320px;}

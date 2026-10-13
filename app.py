@@ -5,6 +5,7 @@ from flask import Flask, g
 import db as db_module
 from auth_utils import load_logged_in_user
 from config import Config
+from extensions import mail
 
 
 def create_app(config_class=Config):
@@ -16,6 +17,7 @@ def create_app(config_class=Config):
 
     db_module.init_app(app)
     db_module.init_db(app)
+    mail.init_app(app)
 
     from main import bp as main_bp
     from auth import bp as auth_bp

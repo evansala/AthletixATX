@@ -42,17 +42,6 @@ if (revealEls.length) {
   revealEls.forEach(el => io.observe(el));
 }
 
-// ---- contact form (no backend — placeholder confirmation) ----
-const contactForm = document.getElementById('contactForm');
-const formNote = document.getElementById('formNote');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    formNote.classList.add('show');
-    contactForm.reset();
-  });
-}
-
 // ---- video category filtering (videos page) ----
 const filterBtns = document.querySelectorAll('.filter-btn');
 const videoCards = document.querySelectorAll('.video-card');
